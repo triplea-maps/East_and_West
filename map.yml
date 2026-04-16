@@ -1,0 +1,6 @@
+map_name: East_and_West
+games:
+- {game_name: 'East & West-Automated-7 Player', file_name: East_and_West-Automated-7p.xml}
+- {game_name: 'East & West-Automated-4 Player', file_name: East_and_West-Automated-4p.xml}
+- {game_name: 'East & West-Manual', file_name: East_and_West-Manual.xml}
+- {game_name: 'East & West-Standard', file_name: East_and_West-Standard.xml}
