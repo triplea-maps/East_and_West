@@ -797,7 +797,7 @@
 <option name="conditions" value="conditionAttachmentEveryTurn"/>
 <option name="conditions" value="conditionAttachment@ChinaArea@Non_Aligned"/>
 <option name="players" value="Britain"/>
-<option name="chance" value="1:10"/>
+<option name="chance" value="1:30"/>
 <option name="chanceIncrementOnFailure" value="1"/>
 <option name="when" value="before:BritainPurchase"/>
 <option name="placement" value="@ChinaArea@:@ChinaSetup@" />
