@@ -1643,6 +1643,7 @@
 <connection t1="Columbia" t2="Panama"/>
 <connection t1="Columbia" t2="Brazil"/>
 <connection t1="Columbia" t2="Caribbean Sea"/>
+<connection t1="Caribbean Sea" t2="Columbia Sea Zone"/>
 <connection t1="Columbia" t2="Columbia Sea Zone"/>
 <connection t1="Columbia" t2="Peru"/>
 <connection t1="Columbia Sea Zone" t2="Central America"/>
