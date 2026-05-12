@@ -1346,6 +1346,7 @@
 <connection t1="Caribbean Sea" t2="Central America"/>
 <connection t1="Caribbean Sea" t2="Venezuela"/>
 <connection t1="Caribbean Sea" t2="Columbia"/>
+<connection t1="Caribbean Sea" t2="Columbia Sea Zone"/>
 <connection t1="Caribbean Sea" t2="Antilles Sea Zone"/>
 <connection t1="Caribbean Sea" t2="Panama"/>
 <connection t1="Caribbean Sea" t2="West Indies"/>
@@ -2201,9 +2202,16 @@
 <result resourceOrUnit="factory" quantity="1"/>
 </productionRule>
 <productionRule name="buyAAGun">
-<cost resource="PUs" quantity="6"/>
+<cost resource="PUs" quantity="5"/>
 <result resourceOrUnit="aaGun" quantity="1"/>
 </productionRule>
+    <repairRule name="repairFactory">
+      <cost resource="PUs" quantity="1"/>
+      <result resourceOrUnit="factory" quantity="1"/>
+    </repairRule>
+    <repairFrontier name="repair">
+      <repairRules name="repairFactory"/>
+    </repairFrontier>
 <productionFrontier name="production">
 <frontierRules name="buyInfantry"/>
 <frontierRules name="buyArtillery"/>
@@ -2226,6 +2234,13 @@
 <playerProduction player="OAS" frontier="production"/>
 <playerProduction player="United_States" frontier="production"/>
 <playerProduction player="China" frontier="production"/>
+<playerRepair player="Soviet_Union" frontier="repair"/>
+<playerRepair player="Arab_League" frontier="repair"/>
+<playerRepair player="Western_Europe" frontier="repair"/>
+<playerRepair player="Britain" frontier="repair"/>
+<playerRepair player="OAS" frontier="repair"/>
+<playerRepair player="United_States" frontier="repair"/>
+<playerRepair player="China" frontier="repair"/>
 </production>
 <propertyList>
     <property name="Total Victory" value="true" editable="true">
@@ -2243,81 +2258,114 @@
 <property name="East Economic Victory" value="100" editable="true">
 <number min="90" max="120"/>
 </property>
-<property name="Low Luck" value="false" editable="true">
-<boolean/>
-</property>
-<property name="Low Luck for AntiAircraft" value="false" editable="true">
-<boolean/>
-</property>
-<property name="Low Luck for Bombing and Territory Damage" value="false" editable="true">
-<boolean/>
-</property>
-<property name="Use Triggers" value="true" editable="false">
-<boolean/>
-</property>
-<property name="Units Can Be Destroyed Instead Of Captured" value="false" editable="true">
-<boolean/>
-</property>
-<property name="Territory Turn Limit" value="false" editable="true">
-<boolean/>
-</property>
-<property name="Submersible Subs" value="true" editable="true">
-<boolean/>
-</property>
-<property name="Two hit battleship" value="true" editable="true">
-<boolean/>
-</property>
-<property name="Units Repair Hits End Turn" value="false" editable="true">
-<boolean/>
-</property>
-<property name="Units Repair Hits Start Turn" value="false" editable="true">
-<boolean/>
-</property>
-<property name="Shore Bombard Per Ground Unit Restricted" value="false" editable="true">
-<boolean/>
-</property>
-<property name="Naval Bombard Casualties Return Fire" value="true" editable="true">
-<boolean/>
-</property>
-<property name="Partial Amphibious Retreat" value="false" editable="true">
-<boolean/>
-</property>
-<property name="Attacker Retreat Planes" value="true" editable="true">
-<boolean/>
-</property>
-<property name="Unplaced units live when not placed" value="true" editable="false">
-<boolean/>
-</property>
-<property name="Unit Placement In Enemy Seas" value="false" editable="true">
-<boolean/>
-</property>
-<property name="Produce fighters on carriers" value="false" editable="true">
-<boolean/>
-</property>
-<property name="Move existing fighters to new carriers" value="false" editable="true">
-<boolean/>
-</property>
-<property name="Surviving Air Move To Land" value="false" editable="false">
-<boolean/>
-</property>
-<property name="Allied Air Dependents" value="true" editable="false">
-<boolean/>
-</property>
-<property name="Air Attack Sub Restricted" value="false" editable="false">
-<boolean/>
-</property>
-<property name="Sub Control Sea Zone Restricted" value="false" editable="false">
-<boolean/>
-</property>
-<property name="neutralCharge" value="0" editable="true">
-<number min="0" max="9999999"/>
-</property>
-<property name="Neutrals Are Impassable" value="false" editable="true">
-<boolean/>
-</property>
-<property name="maxFactoriesPerTerritory" value="1" editable="false">
-<number min="1" max="100"/>
-</property>
+    <property name="Unplaced units live when not placed" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Occupied Territories" value="true" editable="false">
+      <boolean/>
+    </property>
+    <!-- specific rules -->
+    <!-- land related -->
+    <property name="Blitz Through Factories And AA Restricted" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Roll AA Individually" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Choose AA Casualties" value="false" editable="false">
+      <boolean/>
+    </property>
+    <property name="AA Territory Restricted" value="true" editable="false">
+      <boolean/>
+    </property>
+    <!-- sea related -->
+    <property name="Partial Amphibious Retreat" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Shore Bombard Per Ground Unit Restricted" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Naval Bombard Casualties Return Fire" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Hari-Kari Units" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Allied Air Dependents" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Surviving Air Move To Land" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Air Attack Sub Restricted" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Ignore Transport In Movement" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Transport Casualties Restricted" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Unescorted Transport Dies" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Ignore Sub In Movement" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Defending Subs Sneak Attack" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Sub Retreat Before Battle" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Submersible Subs" value="true" editable="false">
+      <boolean/>
+    </property>
+    <!-- Sub Control Sea Zone Restricted should be FALSE if there are any convoy zones! -->
+    <property name="Sub Control Sea Zone Restricted" value="false" editable="false">
+      <boolean/>
+    </property>
+    <property name="Subs Can End NonCombat Move With Enemies" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Previous Units Fight" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Two hit battleship" value="true" editable="false">
+      <boolean/>
+    </property>
+    <!-- production related -->
+    <property name="Produce fighters on carriers" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Produce new fighters on old carriers" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Move existing fighters to new carriers" value="false" editable="false">
+      <boolean/>
+    </property>
+    <property name="Land existing fighters on new carriers" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="LHTR Carrier production rules" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Unit Placement In Enemy Seas" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Territory Turn Limit" value="false" editable="false">
+      <boolean/>
+    </property>
+    <property name="maxFactoriesPerTerritory" value="1"/>
+    <property name="Placement Restricted By Factory" value="true" editable="false">
+      <boolean/>
+    </property>
+    <property name="Raids May Be Preceeded By Air Battles" value="false" editable="true">
+      <boolean/>
+    </property>
+    <property name="Damage From Bombing Done To Units Instead Of Territories" value="true" editable="false">
+      <boolean/>
+    </property>
 <property name="Give Units By Territory" value="true" editable="false">
   <boolean/>
 </property>
