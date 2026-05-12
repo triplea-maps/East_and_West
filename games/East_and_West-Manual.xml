@@ -864,6 +864,7 @@
 <unitPlacement unitType="recruitmentCenter" territory="Burma" quantity="1" owner="Britain"/>
 <unitPlacement unitType="infantry" territory="Central America" quantity="1" owner="Non_Aligned"/>
 <unitPlacement unitType="recruitmentCenter" territory="Ceylon" quantity="1" owner="Britain"/>
+<unitPlacement unitType="recruitmentCenter" territory="Turkmenistan" quantity="1" owner="Soviet_Union"/>
 <unitPlacement unitType="infantry" territory="Chile" quantity="1" owner="Non_Aligned"/>
 <unitPlacement unitType="infantry" territory="Columbia" quantity="1" owner="Non_Aligned"/>
 <unitPlacement unitType="recruitmentCenter" territory="Congo" quantity="1" owner="Western_Europe"/>
